@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .prompt_form{
+            display: flex;
+            flex-direction: column;
+            margin-top: 5%
+        }
+        #prompt_text{
+            width: 500px;
+        }
+        #negative_prompt_text{
+            width: 500px;
+        }
+    </style>
+    <title>Text to Image Generator</title>
+</head>
+<body>
+    <img src="data:image/png;base64,{{ image_data }}" alt="Generated Image">
+    <br>
+    <div class = "prompt_form">
+        <form action="/generate_image" method="post">
+            <label for="prompt_text">Enter prompt:</label>
+            <br>
+            <input type="prompt_text" id="prompt_text" name="prompt_text" value = "{{prompt_data}}"required>
+            <br>
+            <label for="negative_prompt_text">Enter negative prompt:</label>
+            <br>
+            <input type="text" id="negative_prompt_text" name="negative_prompt_text" value = "{{negative_prompt_data}}">
+            <br>
+            <label for="image_length">Enter image length:</label>
+            <br>
+            <input type="number" id="image_length" name="image_length" value = "{{image_length}}">
+            <br>
+            <label for="image_width">Enter image width:</label>
+            <br>
+            <input type="number" id="image_width" name="image_width" value = "{{image_width}}">
+            <br>
+            <br>
+            <input type="submit" value="Generate image!">
+        </form>
+    </div>
+</body>
+</html>
